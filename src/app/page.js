@@ -27,7 +27,7 @@ export default function Home() {
     return (
         /*<main className="flex min-h-screen flex-col items-center p-24 justify-center gap-10">*/
             <main className={classes.layout}>
-            <Typography variant="h3">Обточка рабочего колеса для любого рабочего колеса насоса</Typography>
+            <Typography variant="h5">Обточка рабочего колеса для любого рабочего колеса насоса</Typography>
             <Typography >
                 h1 - напор с производительностью q1 в м <br/>
                 h2 - напор с производительностью q2 в м <br/>
@@ -41,22 +41,27 @@ export default function Home() {
             <div className='flex flex-row gap-10'>
                 <div className='flex flex-col gap-2'>
                     <TextField
+                        placeholder='h1'
                         autoComplete='off'
                         variant="filled"
                         onChange={(e) => setH1(Number(e.target.value))} type='numebr'
                         label='введите ваше h1'/>
+
                     <TextField
+                        placeholder='h2'
                         variant="filled"
                         onChange={(e) => setH2(Number(e.target.value))} type='numebr'
                         label='введите ваше h2'/>
                 </div>
                 <div className='flex flex-col gap-2'>
                     <TextField
+                        placeholder='q1'
                         variant="filled"
                         onChange={(e) => setQ1(Number(e.target.value))} type='numebr'
                         label='введите ваше q1'/>
 
                     <TextField
+                        placeholder='q2'
                         variant="filled"
                         onChange={(e) => setQ2(Number(e.target.value))} type='numebr'
                         label='введите ваше q2'/>
@@ -64,14 +69,17 @@ export default function Home() {
             </div>
             <div className='flex flex-row gap-10'>
                 <TextField
+                    placeholder='HNas'
                     variant="filled"
                     onChange={(e) => setHNas(Number(e.target.value))} type='numebr'
                     label='введите ваше HNas'/>
                 <TextField
+                    placeholder='d'
                     variant="filled"
                     onChange={(e) => setD(Number(e.target.value))} type='numebr'
                     label='введите ваше d'/>
                 <TextField
+                    placeholder='q'
                     variant="filled"
                     onChange={(e) => setQ(Number(e.target.value))} type='numebr'
                     label='введите ваше q'/>
@@ -79,8 +87,8 @@ export default function Home() {
             <div>
                 {wheelDurability ? null : <Typography> Введите данные </Typography>}
                 <Typography variant='h4'>Ваша обточка
-                    равна: {wheelDurability > 1 ? 'неверно!' : wheelDurability} </Typography>
-                <Typography variant='h4'>Диаметр после обточки: {wheelDurability * d}</Typography>
+                    равна: {wheelDurability > 1 ? 'неверно!' : wheelDurability || 'Недостаточно данных'} </Typography>
+                <Typography variant='h4'>Диаметр после обточки: {wheelDurability * d || 'Недостаточно данный'}</Typography>
             </div>
         </main>
     )
