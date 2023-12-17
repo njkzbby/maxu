@@ -26,9 +26,9 @@ export default function Home() {
 
     return (
         /*<main className="flex min-h-screen flex-col items-center p-24 justify-center gap-10">*/
-            <main className={classes.layout}>
+        <main className={classes.layout}>
             <Typography variant="h5">Обточка рабочего колеса для любого рабочего колеса насоса</Typography>
-            <Typography >
+            <Typography>
                 h1 - напор с производительностью q1 в м <br/>
                 h2 - напор с производительностью q2 в м <br/>
                 q1 - производительность при q * 0.8 в м3/с <br/>
@@ -87,8 +87,9 @@ export default function Home() {
             <div>
                 {wheelDurability ? null : <Typography> Введите данные </Typography>}
                 <Typography variant='h4'>Ваша обточка
-                    равна: {wheelDurability > 1 ? 'неверно!' : wheelDurability || 'Недостаточно данных'} </Typography>
-                <Typography variant='h4'>Диаметр после обточки: {wheelDurability * d || 'Недостаточно данный'}</Typography>
+                    равна: {wheelDurability > 1 ? 'Внесённые данные недопустимы' : wheelDurability || 'Недостаточно данных или данные недопустимы'} </Typography>
+                <Typography variant='h4'>Диаметр после
+                    обточки: {wheelDurability > 1 ? "'Внесённые данные недопустимы'" : wheelDurability * d || 'Недостаточно данных или данные недопустимы'}</Typography>
             </div>
         </main>
     )
